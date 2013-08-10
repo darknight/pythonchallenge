@@ -10,11 +10,14 @@ next_file = 90052
 def main(zipobj, dirname):
     global next_file
     comments = []
+    word = []
     while True:
         fname = str(next_file) + '.txt'
         path = dirname + '/' + fname
         with open(path) as f:
             cmt = zipobj.getinfo(fname).comment
+            if cmt.isalpha() and cmt not in word:
+                word.append(cmt)
             comments.append(cmt)
             line = f.readline()
             res = next_hint.search(line)
@@ -23,6 +26,7 @@ def main(zipobj, dirname):
             else:
                 break
     print ''.join(comments)
+    print ''.join(word)
 
 
 if __name__ == '__main__':
