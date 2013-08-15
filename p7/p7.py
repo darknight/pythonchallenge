@@ -15,6 +15,7 @@ def main():
 
 if __name__ == '__main__':
     main()
-    # get hint from main(), not very elegant
+    # get hint from main(), the printed result is not very elegant
+    # TODO: need rewriting
     hint = (105, 110, 116, 101, 103, 114, 105, 116, 121,)
     print ''.join(map(chr, hint))
